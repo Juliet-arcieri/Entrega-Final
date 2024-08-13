@@ -1,3 +1,4 @@
+/* main.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -40,44 +41,17 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1rem;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
 }
-
-.content-short {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.content {
-    position: relative;
-}
-
-.btn-link {
-    padding: 0;
-    font-size: 14px;
-    color: #007bff;
-    text-decoration: none;
-}
-
-.btn-link:hover {
-    text-decoration: underline;
-}
-
 .home-image-container {
-    text-align: center; /* Centra la imagen en su contenedor */
-    margin: 50px 150px; /* Añade margen arriba y abajo */
-    max-width: 100%; /* Asegura que el contenedor no exceda el ancho del contenedor padre */
-    overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde del contenedor */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Para asegurarte de que no haya desplazamiento inesperado */
 }
 
 .home-image-container img {
-    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
-    height: auto; /* Mantiene la proporción original de la imagen */
-    display: block; /* Asegura que la imagen se muestre como un bloque */
-    margin: 0 auto; /* Centra la imagen horizontalmente */
+    max-width: 100%;
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Ajusta la imagen para que cubra el contenedor sin distorsión */
+    border-radius: 5px; /* Agrega un poco de borde redondeado */
 }
-
-
