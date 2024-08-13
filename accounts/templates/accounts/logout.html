@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="form-title">Logout</h2>
+    <p>¿Estás seguro de que deseas cerrar sesión?</p>
+    <form method="POST" class="form">
+        {% csrf_token %}
+        <button type="submit" class="btn-primary">Sí, cerrar sesión</button>
+    </form>
+</div>
+{% endblock %}

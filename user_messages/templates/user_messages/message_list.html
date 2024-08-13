@@ -1,0 +1,21 @@
+<!-- user_messages/templates/user_messages/message_list.html -->
+
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h1>Mensajes</h1>
+
+<a href="{% url 'send_message' %}" class="btn btn-primary mb-3">Escribir un nuevo mensaje</a>
+
+{% for message in messages %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">De: {{ message.sender }}</h5>
+            <p class="card-text">{{ message.content }}</p>
+            <p class="card-text"><small class="text-muted">Fecha: {{ message.timestamp }}</small></p>
+        </div>
+    </div>
+{% empty %}
+    <p>No tienes mensajes.</p>
+{% endfor %}
+{% endblock %}

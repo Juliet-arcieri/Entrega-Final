@@ -1,0 +1,9 @@
+# user_messages/urls.py
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('messages/', views.message_list, name='message_list'),  # Ver los mensajes recibidos
+    path('send/', views.send_message, name='send_message'),  # Enviar un mensaje
+]

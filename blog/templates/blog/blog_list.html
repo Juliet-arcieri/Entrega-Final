@@ -1,0 +1,39 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+  <h2>All Blogs</h2>
+  <a href="{% url 'add_blog' %}" class="btn btn-primary btn-lg rounded-pill shadow">
+    Add New Blog
+  </a> <!-- Botón para agregar un nuevo blog -->
+  <hr>
+  {% for blog in blogs %}
+    <div class="blog-post mb-4 p-3 bg-white rounded shadow-sm">
+      <div class="d-flex align-items-center mb-3">
+        {% if blog.author.profile_picture %}
+          <img src="{{ blog.author.profile_picture.url }}" alt="{{ blog.author.username }}" class="rounded-circle me-2" style="width: 50px; height: 50px;">
+        {% else %}
+          <img src="{% static 'default_profile.png' %}" alt="Default Profile" class="rounded-circle me-2" style="width: 50px; height: 50px;">
+        {% endif %}
+        <div>
+          <h5 class="mb-0">{{ blog.author.username }}</h5>
+          <small class="text-muted">{{ blog.created_at }}</small>
+        </div>
+      </div>
+      <h3>{{ blog.title }}</h3>
+      <div class="blog-content">
+        <p class="short-content">{{ blog.content|truncatewords:50 }}</p>
+        {% if blog.content|length > 100 %} <!-- Ajusta el valor según tus necesidades -->
+          <p class="full-content" style="display: none;">{{ blog.content }}</p>
+          <a href="{% url 'blog_detail' blog.id %}" class="btn btn-primary btn-sm">Leer más</a>
+        {% else %}
+          <p class="full-content">{{ blog.content }}</p>
+        {% endif %}
+      </div>
+      {% if blog.image %}
+        <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="img-fluid rounded mt-3">
+      {% endif %}
+    </div>
+    <hr>
+  {% endfor %}
+{% endblock %}

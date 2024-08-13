@@ -1,0 +1,14 @@
+<!-- user_messages/templates/user_messages/send_message.html -->
+
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Enviar Mensaje</h2>
+    <form method="POST" class="bg-light p-4 rounded shadow-sm">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary btn-lg btn-block rounded-pill shadow">Enviar mensaje</button>
+    </form>
+</div>
+{% endblock %}
